@@ -20,7 +20,7 @@
         </fieldset>
 
         <footer>
-            Administrator<form:checkbox path="isAdmin" value="isAdmin"/>
+            Administrator <form:checkbox path="isAdmin" value="isAdmin"/>
             <input type="submit" class="btnLogin" value="Login" tabindex="4">
         </footer>
 

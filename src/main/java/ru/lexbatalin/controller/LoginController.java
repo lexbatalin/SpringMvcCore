@@ -12,7 +12,7 @@ import ru.lexbatalin.model.User;
 @Controller
 public class LoginController {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView login() {
@@ -22,5 +22,10 @@ public class LoginController {
     @RequestMapping(value = "/check_user", method = RequestMethod.POST)
     public ModelAndView checkUser(@ModelAttribute("user") User user) {
         return new ModelAndView("main", "user", user);
+    }
+
+    @RequestMapping(value = "/failed", method = RequestMethod.GET)
+    public ModelAndView failed() {
+        return new ModelAndView("login_failed", "message", "Login failed!");
     }
 }
