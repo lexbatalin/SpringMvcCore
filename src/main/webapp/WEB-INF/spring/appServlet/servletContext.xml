@@ -24,7 +24,7 @@
 
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/*"/>
+			<mvc:mapping path="/main"/>
 			<bean class="ru.lexbatalin.interceptor.TimeInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
