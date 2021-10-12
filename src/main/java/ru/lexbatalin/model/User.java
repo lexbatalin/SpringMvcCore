@@ -15,10 +15,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = {"name", "password", "isAdmin"})
 public class User {
 
-    @Size(min = 4, message = "Имя должно быть больше 4 знаков")
+    @Size(min = 4, message = "{name.size.error}")
     private String name;
 
-    @Size(min = 5, max = 10, message = "Пароль должен быть от 5 до 10 знаков")
+    @Size(min = 5, max = 10, message = "{password.size.error}")
     private String password;
 
     private Boolean isAdmin;

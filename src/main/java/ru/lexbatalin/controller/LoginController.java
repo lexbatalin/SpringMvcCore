@@ -20,8 +20,9 @@ public class LoginController {
     private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView login() {
-        return new ModelAndView("login", "user", new User());
+    public ModelAndView login(@ModelAttribute User user) {
+        user.setName("userNameValue");
+        return new ModelAndView("login", "user", user);
     }
 
     @RequestMapping(value = "/check_user", method = RequestMethod.POST)
