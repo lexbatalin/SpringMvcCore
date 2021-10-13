@@ -15,6 +15,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = {"name", "password", "isAdmin"})
 public class User {
 
+    public User(String name) {
+        this.name = name;
+    }
+
     @Size(min = 4, message = "{name.size.error}")
     private String name;
 

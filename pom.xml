@@ -10,8 +10,6 @@
   <packaging>war</packaging>
 
   <name>SpringMvcCore Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,6 +21,8 @@
     <hibernate.validator.version>6.1.0.Final</hibernate.validator.version>
     <jackson.mapper.verison>1.9.13</jackson.mapper.verison>
     <jackson.databind.version>2.13.0</jackson.databind.version>
+    <commons.io.version>2.11.0</commons.io.version>
+    <commons.fileupload.version>1.4</commons.fileupload.version>
   </properties>
 
   <dependencies>
@@ -50,6 +50,20 @@
       <artifactId>hibernate-validator</artifactId>
       <version>${hibernate.validator.version}</version>
     </dependency>
+
+    <!--Upload file-->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons.io.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.4</version>
+    </dependency>
+
 
     <!-- JSON-->
     <dependency>
@@ -172,7 +186,6 @@
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
