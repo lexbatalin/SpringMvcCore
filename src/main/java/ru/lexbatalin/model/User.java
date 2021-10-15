@@ -22,7 +22,7 @@ public class User {
     @Size(min = 4, message = "{name.size.error}")
     private String name;
 
-    @Size(min = 5, max = 10, message = "{password.size.error}")
+    @Size(min = 3, max = 15, message = "{password.size.error}")
     private String password;
 
     private Boolean isAdmin;

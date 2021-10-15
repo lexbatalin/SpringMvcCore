@@ -31,12 +31,41 @@ public class LoginController {
 
     private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
+    private static final int ZERO_SHORT = 0;
+    private static final int WEAK_STRENGTH = 3;
+    private static final int FEAR_STRENGTH = 5;
+    private static final int STRONG_STRENGTH = 7;
+
+    private static final String TOO_SHORT_COLOR = "#FF11FF";
+    private static final String WEAK_COLOR = "#FF0000";
+    private static final String FEAR_COLOR = "#FF9900";
+    private static final String STRONG_COLOR = "#0099CC";
+
     @Autowired
     private MessageSource messageSource;
 
     @ModelAttribute
     public User createNewUser() {
         return new User("userNameValue");
+    }
+
+    @RequestMapping(value = "/checkStrength", method = RequestMethod.GET,
+            produces = MediaType.TEXT_HTML_VALUE + "; charset=UTF-8")
+    public @ResponseBody String checkStrength(@RequestParam String password) {
+
+        String style = "<span style=\"color:%s; font-weight:bold;\">%s</span>";
+
+        int len = password.length();
+        if (len > ZERO_SHORT && len < WEAK_STRENGTH) {
+            return String.format(style, TOO_SHORT_COLOR, "Too short password");
+        } else if(len >= WEAK_STRENGTH && len < FEAR_STRENGTH) {
+            return String.format(style, WEAK_COLOR, "Too short password");
+        } else if (len >= FEAR_STRENGTH && len < STRONG_STRENGTH) {
+            return String.format(style, FEAR_COLOR, "Medium password");
+        } else if (len >= STRONG_STRENGTH) {
+            return String.format(style, STRONG_COLOR, "Strong password");
+        }
+        return "";
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
